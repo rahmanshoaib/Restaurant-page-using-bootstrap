@@ -28,3 +28,12 @@ address{
     margin: 0px;
     color: rgb(184, 182, 180);
 }
+
+body{
+    padding: 50px 0px 0px 0px;
+    z-index: 0;
+}
+
+.navbar-dark{
+    background-color: rgb(1, 26, 1);
+}
