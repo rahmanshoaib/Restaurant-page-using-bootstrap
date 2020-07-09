@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles-old.css">
 </head>
 
 <body>
@@ -37,8 +37,9 @@
                                 class="fa fa-address-card fa-lg"></span> Contact</a></li>
                 </ul>
                 <span class="navbar-text">
-                    <a data-toggle="modal" data-target="#loginModal">
-                        <span class="fa fa-sign-in"></span> Login</a>
+                    <!-- <a data-toggle="modal" data-target="#loginModal"> -->
+                    <a id="buttonLogin" type="button" role="button">
+                    <span class="fa fa-sign-in"></span> Login</a>
                 </span>
             </div>
         </div>
@@ -175,8 +176,7 @@
                     <img src="./img/logo.png" class="img-fluid">
                 </div>
                 <div class="col-12 col-sm align-self-center">
-                    <button type="button" class="btn btn-warning btn-lg ml-auto" data-target="#reservetablemodal"
-                        data-toggle="modal">Reserve Table</button>
+                    <button id="buttonReservation" type="button" class="btn btn-warning btn-lg ml-auto">Reserve Table</button>
                 </div>
             </div>
         </div>
@@ -238,7 +238,7 @@
                     <a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
                         <span class="carousel-control-next-icon"></span>
                     </a>
-                    <button class="btn btn-danger btn-sm" id="carouselbutton"> 
+                    <button class="btn btn-danger btn-sm" id="carouselbutton">
                         <span class="fa fa-pause"></span>
                     </button>
                 </div>
@@ -368,21 +368,29 @@
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <script>
-        $(document).ready(function(){
-            $("#mycarousel").carousel( {interval:2000});
-            $("#carouselbutton").click(function(){
+        $(document).ready(function () {
+            $("#mycarousel").carousel({ interval: 2000 });
+            $("#carouselbutton").click(function () {
                 if ($("#carouselbutton").children("span").hasClass('fa-pause')) {
                     $("#mycarousel").carousel('pause');
                     $("#carouselbutton").children("span").removeClass('fa-pause');
                     $("#carouselbutton").children("span").addClass('fa-play');
                 }
-                else if ($("#carouselbutton").children("span").hasClass('fa-play')){
+                else if ($("#carouselbutton").children("span").hasClass('fa-play')) {
                     $("#mycarousel").carousel('cycle');
                     $("#carouselbutton").children("span").removeClass('fa-play');
-                    $("#carouselbutton").children("span").addClass('fa-pause');                    
+                    $("#carouselbutton").children("span").addClass('fa-pause');
                 }
             });
-          
+
+            $("#buttonLogin").click(function () {
+                $('#loginModal').modal('show');
+            });
+
+            $("#buttonReservation").click(function () {
+                $('#reservetablemodal').modal('show');
+            });
+
         });
     </script>
 
